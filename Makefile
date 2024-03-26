@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
 
 TARGET = factorial
-PREFIX = /usr/lib
+PREFIX = /usr/bin
 
 all: $(TARGET)
 
