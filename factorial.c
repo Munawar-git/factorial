@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 // Function to calculate factorial
 unsigned long long factorial(int n) {
@@ -7,13 +9,26 @@ unsigned long long factorial(int n) {
     return n * factorial(n - 1);
 }
 
-int main() {
-    int num;
-    printf("Enter a number to find factorial: ");
-    scanf("%d", &num);
+int usage(void) {
+    printf("\nUsage\n");
+    printf("============================\n");
+    printf("factorial <positive-integer>\n");
+    printf("============================\n");
+    return(0);
+}
 
-    if (num < 0)
+int main(int argc, char *argv[]) {  
+    if(argc<=1) {
+        printf("ERROR: No argument found...\n");
+        usage();
+        exit(1);
+     }
+    int num;
+    num = atoi(argv[1]);
+    if (num < 0) {
         printf("Factorial of negative numbers is not defined.\n");
+        usage();
+    }
     else
         printf("Factorial of %d is %llu.\n", num, factorial(num));
 
